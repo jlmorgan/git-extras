@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _reset_to_upstream() {
+  git reset "$(git get-upstream)" "${@}"
+}
+
+_reset_to_upstream "${@}"

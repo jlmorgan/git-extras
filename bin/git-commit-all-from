@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _commit_all_from() {
+  git add -A && \
+    git commit-from "${@}"
+}
+
+_commit_all_from "${@}"

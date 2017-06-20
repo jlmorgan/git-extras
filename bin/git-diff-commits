@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+# shellcheck source=/dev/null
+source "$(git --exec-path)/git-sh-setup"
+
+function _diff_commits() {
+  # shellcheck disable=SC2034
+  local USAGE="<branch> [branch]"
+
+  if [[ -n "${1}" ]]; then
+    TARGET="${2:-$(git current-branch)}"
+
+    echo "Commits in '${TARGET}' not in '${1}':"
+    git lds --no-merges "^${1}" "${TARGET}"
+    echo
+    echo "Commits in '${1}' not in '${TARGET}':"
+    git lds --no-merges "${1}" "^${TARGET}"
+  else
+    usage
+  fi
+}
+
+_diff_commits "${@}"

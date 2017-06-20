@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+# shellcheck source=/dev/null
+source "$(git --exec-path)/git-sh-setup"
+
+function _get_branch() {
+  # shellcheck disable=SC2034
+  local USAGE="<branch>"
+
+  if [[ -n "${1}" ]]; then
+    if [[ -n "$(git ls-remote --heads origin "${1}" 2>/dev/null)" ]]; then
+      echo "origin/${1}"
+    elif [[ -n "$(git rev-parse --verify "${1}" 2>/dev/null)" ]]; then
+      echo "${1}"
+    else
+      die "fatal: branch '${1}' not found in local or remote"
+    fi
+  else
+    usage
+  fi
+}
+
+_get_branch "${@}"

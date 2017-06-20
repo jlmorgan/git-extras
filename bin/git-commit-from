@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+# shellcheck source=/dev/null
+source "$(git --exec-path)/git-sh-setup"
+
+function _commit_from() {
+  # shellcheck disable=SC2034
+  local USAGE="<issueSource>"
+
+  if [[ -n "$(command -v commit-from)" ]]; then
+    CURRENT_BRANCH="$(git current-branch)"
+    MESSAGE=""
+
+    if [[ -n "${1}" ]]; then
+      if [[ "$(dirname "${CURRENT_BRANCH}")" != "." ]]; then
+        MESSAGE=$(commit-from "${1}" "$(basename "${CURRENT_BRANCH}")")
+
+        git commit -e -m "${MESSAGE}"
+      else
+        die "error: commit-from - Branch name does not follow format <type>/<ticketId>"
+      fi
+    else
+      usage
+    fi
+  else
+    die "fatal: command 'commit-from' not found; see https://www.npmjs.com/package/commit-from"
+  fi
+}
+
+_commit_from "${@}"

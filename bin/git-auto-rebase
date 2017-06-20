@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _auto_rebase() {
+  git rebase "$(git get-upstream)" --autosquash -i "${@}"
+}
+
+_auto_rebase "${@}"
