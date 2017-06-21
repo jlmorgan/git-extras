@@ -4,5 +4,9 @@ set -o errexit
 set -o errtrace
 set -o pipefail
 
-git add -A && \
-  git commit -a "${@}"
+function _commit_all() {
+  git add -A && \
+    git commit -a "${@}"
+}
+
+_commit_all "${@}"
