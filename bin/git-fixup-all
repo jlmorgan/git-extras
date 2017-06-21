@@ -9,4 +9,4 @@ function _fixup_all() {
     git fixup
 }
 
-_fixup_all
+_fixup_all "${@}"
