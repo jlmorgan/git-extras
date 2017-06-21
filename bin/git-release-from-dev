@@ -19,6 +19,3 @@ function _release_from_dev() {
 }
 
 _release_from_dev "${@}"
-
-
-git checkout -b "release/${1}" "$(git get-branch dev)"
