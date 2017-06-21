@@ -13,4 +13,4 @@ function _authors() {
     | grep -v "$(git config user.name)"
 }
 
-_authors
+_authors "${@}"

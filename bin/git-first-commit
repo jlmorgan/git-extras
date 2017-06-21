@@ -8,4 +8,4 @@ function _first_commit() {
   git log --pretty=format:%H HEAD ^"$(git get-branch dev)" | tail -1
 }
 
-_first_commit
+_first_commit "${@}"
