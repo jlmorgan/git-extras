@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _current_branch() {
+  git rev-parse --abbrev-ref HEAD "${@}"
+}
+
+_current_branch "${@}"

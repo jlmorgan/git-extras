@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+# shellcheck source=/dev/null
+source "$(git --exec-path)/git-sh-setup"
+
+function _feature_from_current() {
+  # shellcheck disable=SC2034
+  local USAGE="<ticketId>"
+
+  if [[ -n "${1}" ]]; then
+    git checkout -b "feature/${1}" "${@:2}"
+  else
+    usage
+  fi
+}
+
+_feature_from_current "${@}"

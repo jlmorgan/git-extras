@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+# shellcheck source=/dev/null
+source "$(git --exec-path)/git-sh-setup"
+
+function _release_from_dev() {
+  # shellcheck disable=SC2034
+  local USAGE="<version>"
+
+  if [[ -n "${1}" ]]; then
+    git checkout -b "release/${1}" "$(git get-branch dev)" "${@:2}"
+  else
+    usage
+  fi
+}
+
+_release_from_dev "${@}"
+
+
+git checkout -b "release/${1}" "$(git get-branch dev)"

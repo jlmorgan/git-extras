@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _authors() {
+  git log \
+    --format=%aN \
+    --no-merges \
+    | sort \
+    | uniq \
+    | grep -v "$(git config user.name)"
+}
+
+_authors

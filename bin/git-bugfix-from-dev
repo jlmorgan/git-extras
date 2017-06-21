@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+# shellcheck source=/dev/null
+source "$(git --exec-path)/git-sh-setup"
+
+function _bugfix_from_dev() {
+  # shellcheck disable=SC2034
+  local USAGE="<ticketId>"
+
+  if [[ -n "${1}" ]]; then
+    git checkout -b "bugfix/${1}" "$(git get-branch dev)"
+  else
+    usage
+  fi
+}
+
+_bugfix_from_dev "${@}"

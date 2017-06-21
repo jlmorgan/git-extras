@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _squash_all_commits() {
+  git reset-to-upstream && \
+    git commit-all "${@}"
+}
+
+_squash_all_commits "${@}"

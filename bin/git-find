@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _find() {
+  git ls-files | grep -i "${@}"
+}
+
+_find "${@}"

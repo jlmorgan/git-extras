@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _rm_merged() {
+  for branch in $(git merged); do
+    git branch -d "${branch}"
+  done
+}
+
+_rm_merged "${@}"
