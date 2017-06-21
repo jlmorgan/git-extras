@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _set_upstream() {
+  git branch --set-upstream-to=origin/"$(git current-branch)" "$(git current-branch)"
+}
+
+_set_upstream "${@}"

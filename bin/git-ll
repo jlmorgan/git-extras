@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _ll() {
+  git ls --numstat
+}
+
+_ll "${@}"

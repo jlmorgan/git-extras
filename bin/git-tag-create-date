@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _tag_create_date() {
+  git log \
+    --date-order \
+    --pretty=format:"%ai%Cred%d" \
+    --simplify-by-decoration \
+    --tags
+}
+
+_tag_create_date "${@}"

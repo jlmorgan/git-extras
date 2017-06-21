@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _lds() {
+  git log \
+    --date=short \
+    --decorate \
+    --pretty=format:"%C(yellow)%h %ad%Cred%d %Creset%s %C(blue)[a:%aN c:%cN]" \
+    "${@}"
+}
+
+_lds "${@}"

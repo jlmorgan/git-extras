@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _commits_in_latest_tag() {
+  echo "Previous tag: $(git previous-tag)"
+  echo "Latest tag: $(git latest-tag)"
+  echo
+  git lds --no-merges "$(git previous-tag)".."$(git latest-tag)"
+}
+
+_commits_in_latest_tag "${@}"

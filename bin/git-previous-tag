@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _previous_tag() {
+  git tag --sort=committerdate \
+    | tail -2 \
+    | head -1
+}
+
+_previous_tag "${@}"

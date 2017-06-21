@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _fixup_all() {
+  git add -A && \
+    git fixup
+}
+
+_fixup_all "${@}"

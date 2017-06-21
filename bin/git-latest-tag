@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+function _latest_tag() {
+  git tag --sort=committerdate \
+    | tail -1
+}
+
+_latest_tag "${@}"
