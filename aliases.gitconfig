@@ -11,7 +11,7 @@
   cfg = !git commit-from github
   cfj = !git commit-from jira
   ci = commit
-  cilt = !git commits-in-last-tag
+  cilt = !git commits-in-latest-tag
   cni = !git commits-not-in
   cnid = !git commits-not-in dev
   cnim = !git commits-not-in master
