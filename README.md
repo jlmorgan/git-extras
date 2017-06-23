@@ -24,7 +24,7 @@ The following commands have a dependency on an external project to do things and
 
 | Command | Dependencies |
 |---|---|
-| `git-all-commit-from` | [commit-from][] from [NPM][] |
+| `git-commit-all-from` | [commit-from][] from [NPM][] |
 | `git-commit-from` | [commit-from][] from [NPM][] |
 
 [commit-from]: https://www.npmjs.com/package/commit-from
