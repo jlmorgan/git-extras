@@ -35,6 +35,8 @@
   lt = !git latest-tag
   pt = !git previous-tag
   rfd = !git release-from-dev
+  rrh = !git reset-to-remote --hard
+  rrs = !git reset-to-remote
   ruh = !git reset-to-upstream --hard
   rus = !git reset-to-upstream
   sac = !git squash-all-commits
