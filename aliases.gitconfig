@@ -1,4 +1,6 @@
 [alias]
+  afg = !git commit-from github --amend
+  afj = !git commit-from jira --amend
   bfc = !git bugfix-from-current
   bfd = !git bugfix-from-dev
   br = branch
