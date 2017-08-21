@@ -44,6 +44,6 @@
   sac = !git squash-all-commits
   sacf = !git squash-all-commits-from
   sacfg = !git squash-all-commits-from github
-  sacff = !git squash-all-commits-from jira
+  sacfj = !git squash-all-commits-from jira
   st = status
   su = !git set-upstream
