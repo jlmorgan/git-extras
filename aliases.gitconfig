@@ -1,4 +1,6 @@
 [alias]
+  afg = !git commit-from github --amend
+  afj = !git commit-from jira --amend
   bfc = !git bugfix-from-current
   bfd = !git bugfix-from-dev
   br = branch
@@ -40,5 +42,8 @@
   ruh = !git reset-to-upstream --hard
   rus = !git reset-to-upstream
   sac = !git squash-all-commits
+  sacf = !git squash-all-commits-from
+  sacfg = !git squash-all-commits-from github
+  sacfj = !git squash-all-commits-from jira
   st = status
   su = !git set-upstream

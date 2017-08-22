@@ -5,8 +5,8 @@ set -o errtrace
 set -o pipefail
 
 function _squash_all_commits() {
-  git reset-to-upstream && \
-    git commit-all "${@}"
+  git reset "${1}" && \
+    git commit-all "${@:2}"
 }
 
 _squash_all_commits "${@}"
