@@ -15,7 +15,7 @@ function _squash_all_commits_from() {
 
   if [[ -n "${BRANCH}" ]]; then
     git reset "${BRANCH}" && \
-      git commit-all-from "${TICKET_SOURCE}" "${@}"
+      git commit-all-from "${TICKET_SOURCE}" "${@:3}"
   else
     usage
   fi
