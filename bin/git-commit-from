@@ -14,11 +14,14 @@ function _commit_from() {
 
   if [[ -n "$(command -v commit-from)" ]]; then
     CURRENT_BRANCH="$(git current-branch)"
-    MESSAGE=""
 
     if [[ -n "${ISSUE_SOURCE}" ]]; then
       if [[ "$(dirname "${CURRENT_BRANCH}")" != "." ]]; then
-        MESSAGE=$(commit-from "${ISSUE_SOURCE}" "$(basename "${CURRENT_BRANCH}")")
+        { # Try
+          MESSAGE=$(commit-from "${ISSUE_SOURCE}" "$(basename "${CURRENT_BRANCH}")" 2>&1)
+        } || { # Catch
+          die "error: commit-from ${ISSUE_SOURCE} - ${MESSAGE}"
+        }
 
         git commit -e -m "${MESSAGE}" "${@:2}"
       else
