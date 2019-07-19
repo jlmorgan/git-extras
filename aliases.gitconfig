@@ -49,5 +49,7 @@
   sfd = !git story-from-dev
   st = status
   su = !git set-upstream
+  tfc = !git task-from-current
+  tfd = !git task-from-dev
   xfc = !git experimental-from-current
   xfd = !git experimental-from-dev
