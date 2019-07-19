@@ -26,9 +26,11 @@
   cot = !git checkout-tag
   dc = !git diff-commits
   dcw = !git diff-commits "$(git current-branch)" "${1}"
+  dfc = !git documentation-from-current
+  dfd = !git documentation-from-dev
   dlc = !git diff --cached HEAD^
-  efc = !git experimental-from-current
-  efd = !git experimental-from-dev
+  efc = !git epic-from-current
+  efd = !git epic-from-dev
   ffc = !git feature-from-current
   ffd = !git feature-from-dev
   gu = !git get-upstream
@@ -45,5 +47,11 @@
   sacf = !git squash-all-commits-from
   sacfg = !git squash-all-commits-from github
   sacfj = !git squash-all-commits-from jira
+  sfc = !git story-from-current
+  sfd = !git story-from-dev
   st = status
   su = !git set-upstream
+  tfc = !git task-from-current
+  tfd = !git task-from-dev
+  xfc = !git experimental-from-current
+  xfd = !git experimental-from-dev

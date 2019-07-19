@@ -14,7 +14,7 @@
 1. Add the following to your execution `PATH` in wherever you manage your execution `PATH`:
 ```bash
 # Don't seriously copy-paste and be done. You will need to update the path.
-export PATH="${PATH}:~/path/to/git-extras.git/bin"
+export PATH="${PATH}:${HOME}/path/to/git-extras.git/bin"
 ```
 1. Reload your session, profile file, etc.
 
@@ -27,5 +27,10 @@ The following commands have a dependency on an external project to do things and
 | `git-commit-all-from` | [commit-from][] from [NPM][] |
 | `git-commit-from` | [commit-from][] from [NPM][] |
 
+## Upgrading
+
+See [Upgrading][] documentation for breaking changes between version.
+
+[Upgrading]: ./docs/Upgrading.md
 [commit-from]: https://www.npmjs.com/package/commit-from
 [NPM]: https://www.npmjs.com/
