@@ -27,8 +27,6 @@
   dc = !git diff-commits
   dcw = !git diff-commits "$(git current-branch)" "${1}"
   dlc = !git diff --cached HEAD^
-  efc = !git experimental-from-current
-  efd = !git experimental-from-dev
   ffc = !git feature-from-current
   ffd = !git feature-from-dev
   gu = !git get-upstream
@@ -47,3 +45,5 @@
   sacfj = !git squash-all-commits-from jira
   st = status
   su = !git set-upstream
+  xfc = !git experimental-from-current
+  xfd = !git experimental-from-dev
