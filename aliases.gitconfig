@@ -45,6 +45,8 @@
   sacf = !git squash-all-commits-from
   sacfg = !git squash-all-commits-from github
   sacfj = !git squash-all-commits-from jira
+  sfc = !git story-from-current
+  sfd = !git story-from-dev
   st = status
   su = !git set-upstream
   xfc = !git experimental-from-current
