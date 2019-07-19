@@ -26,6 +26,8 @@
   cot = !git checkout-tag
   dc = !git diff-commits
   dcw = !git diff-commits "$(git current-branch)" "${1}"
+  dfc = !git documentation-from-current
+  dfd = !git documentation-from-dev
   dlc = !git diff --cached HEAD^
   efc = !git epic-from-current
   efd = !git epic-from-dev
