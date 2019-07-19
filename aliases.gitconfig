@@ -27,6 +27,8 @@
   dc = !git diff-commits
   dcw = !git diff-commits "$(git current-branch)" "${1}"
   dlc = !git diff --cached HEAD^
+  efc = !git epic-from-current
+  efd = !git epic-from-dev
   ffc = !git feature-from-current
   ffd = !git feature-from-dev
   gu = !git get-upstream
