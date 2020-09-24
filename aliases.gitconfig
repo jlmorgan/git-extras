@@ -16,7 +16,7 @@
   cilt = !git commits-in-latest-tag
   cni = !git commits-not-in
   cnid = !git commits-not-in dev
-  cnim = !git commits-not-in master
+  cnim = !git commits-not-in "$(git get-default-branch)"
   co = checkout
   cobf = !git checkout-bugfix
   coe = !git checkout-experimental
@@ -34,7 +34,8 @@
   ffc = !git feature-from-current
   ffd = !git feature-from-dev
   gu = !git get-upstream
-  hfm = !git hotfix-from-master
+  hfd = !git hotfix-from-default
+  hfm = !git hotfix-from-default
   la = !git list-aliases
   lt = !git latest-tag
   pt = !git previous-tag

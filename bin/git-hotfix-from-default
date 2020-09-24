@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2155
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+# shellcheck source=/dev/null
+source "$(git --exec-path)/git-sh-setup"
+
+function _hotfix_from_default() {
+  # shellcheck disable=SC2034
+  local USAGE="<ticketId>"
+  local defaultBranch="$(git get-default-branch)"
+
+  if [[ -n "${1}" ]]; then
+    git checkout -b "hotfix/${1}" "$(git get-branch "${defaultBranch}")" "${@:2}"
+  else
+    usage
+  fi
+}
+
+_hotfix_from_default "${@}"
