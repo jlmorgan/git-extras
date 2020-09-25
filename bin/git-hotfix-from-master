@@ -4,18 +4,4 @@ set -o errexit
 set -o errtrace
 set -o pipefail
 
-# shellcheck source=/dev/null
-source "$(git --exec-path)/git-sh-setup"
-
-function _hotfix_from_master() {
-  # shellcheck disable=SC2034
-  local USAGE="<ticketId>"
-
-  if [[ -n "${1}" ]]; then
-    git checkout -b "hotfix/${1}" "$(git get-branch master)" "${@:2}"
-  else
-    usage
-  fi
-}
-
-_hotfix_from_master "${@}"
+git hotfix-from-default "${@}"

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2155
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+# shellcheck source=/dev/null
+source "$(git --exec-path)/git-sh-setup"
+
+function _get_default_branch() {
+  local defaultBranch=$(git config init.defaultBranch)
+
+  if [[ -n "$(git rev-parse --verify "${defaultBranch}" 2>/dev/null)" ]]; then
+    echo "${defaultBranch}"
+  elif [[ -n "$(git rev-parse --verify "main" 2>/dev/null)" ]]; then
+    echo "main"
+  else
+    echo "master"
+  fi
+}
+
+_get_default_branch
