@@ -5,7 +5,11 @@ set -o errtrace
 set -o pipefail
 
 function _auto_rebase() {
-  git rebase "$(git get-upstream)" --autosquash -i "${@}"
+  # shellcheck disable=SC2155
+  local upstreamBranch="$(git get-upstream)"
+  local targetBranch="${1:-${upstreamBranch}}"
+  
+  git rebase "${targetBranch}" --autosquash -i "${@}"
 }
 
 _auto_rebase "${@}"
