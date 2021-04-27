@@ -9,7 +9,8 @@ function _auto_rebase() {
   local upstreamBranch="$(git get-upstream)"
   local targetBranch="${1:-${upstreamBranch}}"
   
-  git rebase "${targetBranch}" --autosquash -i "${@}"
+  # shellcheck disable=SC2086
+  git rebase -i "${targetBranch}" --autosquash ${2:@}
 }
 
 _auto_rebase "${@}"
