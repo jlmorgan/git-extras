@@ -7,7 +7,7 @@ set -o pipefail
 function _merged() {
   git branch --merged \
     | cut -c 3- \
-    | grep -v -E "^(dev|master)$"
+    | grep -v -E "^(dev|main|master)$"
 }
 
 _merged "${@}"
